@@ -25,7 +25,7 @@ describe('ProblemeComponent', () => {
   it('champ prenom 2 char', () => {
     let zone = component.problemeForm.controls['prenom'];
     zone.setValue('a'.repeat(2));
-    expect(zone.valid).toBeTruthy();
+    expect(zone.valid).toBeFalsy();
   });
 
   it('champ prenom 3 char', () => {
@@ -46,6 +46,16 @@ describe('ProblemeComponent', () => {
     let zone = component.problemeForm.controls['prenom'];
     zone.setValue('');
     errors = zone.errors || {};
-    expect(errors['minlength']).toBeTruthy();
+    expect(errors['minlength']).toBeFalsy();
   });
+
+  it('champ prenom 10 espaces', () => {
+    let zone = component.problemeForm.controls['prenom'];
+    zone.setValue(' '.repeat(10));
+    expect(zone.valid).toBeTruthy();
+  });
+
+  
+
+
 });
