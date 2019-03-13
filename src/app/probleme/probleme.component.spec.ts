@@ -39,4 +39,13 @@ describe('ProblemeComponent', () => {
     zone.setValue('a'.repeat(200));
     expect(zone.valid).toBeTruthy();
   });
+
+  
+  it('champ prenom vide', () => {
+    let errors = {};
+    let zone = component.problemeForm.controls['prenom'];
+    zone.setValue('');
+    errors = zone.errors || {};
+    expect(errors['minlength']).toBeTruthy();
+  });
 });
