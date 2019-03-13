@@ -55,7 +55,11 @@ describe('ProblemeComponent', () => {
     expect(zone.valid).toBeTruthy();
   });
 
-  
+  it('champ prenom 2 espaces 1 char', () => {
+    let zone = component.problemeForm.controls['prenom'];
+    zone.setValue(' '.repeat(2) + 'a');
+    expect(zone.valid).toBeTruthy();
+  });
 
 
 });
