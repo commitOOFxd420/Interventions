@@ -1,0 +1,30 @@
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { ProblemeComponent } from './probleme.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFontAwesomeComponent, AngularFontAwesomeModule } from 'angular-font-awesome';
+
+describe('ProblemeComponent', () => {
+  let component: ProblemeComponent;
+  let fixture: ComponentFixture<ProblemeComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports : [ReactiveFormsModule, AngularFontAwesomeModule, ],
+      declarations: [ ProblemeComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ProblemeComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('champ prenom 3 char ou +', () => {
+    let zone = component.problemeForm.controls['prenom'];
+    zone.setValue('a'.repeat(2));
+    expect(zone.valid).toBeTruthy();
+  });
+});
