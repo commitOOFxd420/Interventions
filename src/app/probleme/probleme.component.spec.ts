@@ -22,7 +22,7 @@ describe('ProblemeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('champ prenom 3 char ou +', () => {
+  it('champ prenom 2 char', () => {
     let zone = component.problemeForm.controls['prenom'];
     zone.setValue('a'.repeat(2));
     expect(zone.valid).toBeTruthy();
